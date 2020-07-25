@@ -1,36 +1,25 @@
 <h1>Hello Angular World</h1>
-<!--<p>{{ title }}</p>-->
-<!--<p>{{ number1 - 2 }}</p>-->
-<!--<p>{{ arr }}</p>-->
-<!--<p>{{ obj }}</p>-->
-<!--<p>{{ obj.a }}</p>-->
-<!--<p>{{ obj.b.c }}</p>-->
-<!--<p>{{ 'abc' + 'ABC' }}</p>-->
 
-<!--binding-->
-<img [src]= "img" height="100px" alt="">
-<hr>
+<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>
 
-<!--event binding-->
-<input
-  type="text"
-  (keyup.enter)="onInput($event)"
-  (blur)="onBlur(myInput.value)"
-  #myInput
->
-<p><strong>{{ inputValue }}</strong></p>
+<div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  borderRadius: '5px',
+  border: '1px solid #ccc',
+  background: backgroundToggle ? 'red' : 'blue'
+}">
 
-<button (click)="onClick()">Click me</button>
+</div>
+
+<p [ngClass]="{
+  red: backgroundToggle,
+  blue: !backgroundToggle
+}"
+>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, quae.</p>
 
 
-<!--2way binding + imports -> FormsModule --> i
-<input
-  type="text"
-  [(ngModel)]="title"
->
-<p>{{title}}</p>
-
-
-<hr>
-<app-post></app-post>
-
+<p
+  [class.blue]="!backgroundToggle"
+  [class.red]="backgroundToggle"
+>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, rem!</p>
