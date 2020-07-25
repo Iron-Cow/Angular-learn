@@ -1,13 +1,36 @@
 <h1>Hello Angular World</h1>
-<p>{{ title }}</p>
-<p>{{ number1 - 2 }}</p>
-<p>{{ arr }}</p>
-<p>{{ obj }}</p>
-<p>{{ obj.a }}</p>
-<p>{{ obj.b.c }}</p>
-<p>{{ 'abc' + 'ABC' }}</p>
+<!--<p>{{ title }}</p>-->
+<!--<p>{{ number1 - 2 }}</p>-->
+<!--<p>{{ arr }}</p>-->
+<!--<p>{{ obj }}</p>-->
+<!--<p>{{ obj.a }}</p>-->
+<!--<p>{{ obj.b.c }}</p>-->
+<!--<p>{{ 'abc' + 'ABC' }}</p>-->
 
-
-<app-post></app-post>
+<!--binding-->
+<img [src]= "img" height="100px" alt="">
 <hr>
-<app-post4></app-post4>
+
+<!--event binding-->
+<input
+  type="text"
+  (keyup.enter)="onInput($event)"
+  (blur)="onBlur(myInput.value)"
+  #myInput
+>
+<p><strong>{{ inputValue }}</strong></p>
+
+<button (click)="onClick()">Click me</button>
+
+
+<!--2way binding + imports -> FormsModule --> i
+<input
+  type="text"
+  [(ngModel)]="title"
+>
+<p>{{title}}</p>
+
+
+<hr>
+<app-post></app-post>
+
