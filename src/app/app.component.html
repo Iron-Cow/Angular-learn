@@ -8,5 +8,10 @@
   <app-post
     *ngFor="let p of posts"
     [post]="p"
-  ></app-post>
+  >
+    <small *ngIf="p.text.length > 10; else short">Long Post</small>
+    <ng-template #short>
+      <small>Short Post</small>
+    </ng-template>
+  </app-post>
 </div>
