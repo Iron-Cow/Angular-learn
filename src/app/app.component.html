@@ -1,7 +1,12 @@
-<h1>Hello Angular World</h1>
+<div class="container">
+  <h1>Angular Components</h1>
 
-<!--| - pipe start-->
-<p>{{ now | date  }}</p>
-<p>{{ now | date:'small'  }}</p>
-<p>{{ now | date:'long' | lowercase  }}</p>
-<p>{{ now | json  }}</p>
+  <app-post-form
+    (onAdd)="updatePosts($event)"
+  ></app-post-form>
+  <hr>
+  <app-post
+    *ngFor="let p of posts"
+    [post]="p"
+  ></app-post>
+</div>
