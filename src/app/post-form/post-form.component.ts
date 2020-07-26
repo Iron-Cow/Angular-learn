@@ -18,7 +18,7 @@ export class PostFormComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
   }
 
   addPost(): void{

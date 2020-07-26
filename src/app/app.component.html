@@ -8,10 +8,13 @@
   <app-post
     *ngFor="let p of posts"
     [post]="p"
+    (onRemove)="removePost($event)"
   >
-    <small *ngIf="p.text.length > 10; else short">Long Post</small>
-    <ng-template #short>
-      <small>Short Post</small>
-    </ng-template>
+    <div #info>
+      <small *ngIf="p.text.length > 10; else short">Long Post</small>
+      <ng-template #short>
+        <small>Short Post</small>
+      </ng-template>
+    </div>
   </app-post>
 </div>
