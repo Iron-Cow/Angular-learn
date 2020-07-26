@@ -1,25 +1,48 @@
 <h1>Hello Angular World</h1>
 
-<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>
+<button (click)="toggle = !toggle">Toggle</button>
+<button (click)="toggle = 111">Set toggle = 111</button>
 
-<div [ngStyle]="{
-  width: '200px',
-  height: '200px',
-  borderRadius: '5px',
-  border: '1px solid #ccc',
-  background: backgroundToggle ? 'red' : 'blue'
-}">
+<!-- * - структурные изменния-->
+<!--ngif else-->
+<p *ngIf="toggle" class="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, explicabo.</p>
+<p *ngIf="!toggle" class="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet odio, reiciendis?</p>
 
+
+<!--// OR-->
+
+<p *ngIf="toggle; else blueP" class="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, explicabo.</p>
+<ng-template #blueP>
+  <p *ngIf="!toggle" class="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet odio, reiciendis?</p>
+</ng-template>
+
+<hr>
+<!--ngSwitch-->
+
+<div [ngSwitch]="toggle">
+  <p *ngSwitchCase="true" class="red">Lorem ipsum dolor sit amet.</p>
+  <p *ngSwitchCase="false" class="blue">Lorem ipsum dolor.</p>
+  <p *ngSwitchDefault>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi ea error esse, est expedita hic laboriosam magni officia provident sint.</p>
 </div>
 
-<p [ngClass]="{
-  red: backgroundToggle,
-  blue: !backgroundToggle
-}"
->Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, quae.</p>
+<!--ngFor-->
+<ul>
+  <li *ngFor="let num of arr; let indx = index">
+    {{ indx + 1 }} -> <strong>{{ num }}</strong>
+  </li>
+</ul>
 
 
-<p
-  [class.blue]="!backgroundToggle"
-  [class.red]="backgroundToggle"
->Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, rem!</p>
+<ul style="list-style: none">
+  <li *ngFor="let post of objects">
+    <p>{{ post.title }} <b>{{ post.author }}</b></p>
+    <ul>
+      <li *ngFor="let comment of post.comments">
+        <div>
+          <small>{{ comment.name }}</small>
+          <p>{{ comment.text }}</p>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
