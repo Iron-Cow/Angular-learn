@@ -15,7 +15,7 @@ export interface Post {
 export class AppComponent implements OnInit{
   posts: Post[] = [
     {title: 'Angular component', text: 'Still learning component...', id: 1},
-    // {title: 'Next blok', text: 'This text about directives... 11235813', id: 2}
+    {title: 'Next blok', text: 'This text about directives... 11235813', id: 2}
   ];
 
   ngOnInit(): void {
