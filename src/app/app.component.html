@@ -11,4 +11,21 @@
      [dStyles]="{border: '1px solid red', borderRadius: '15px'}"
   >Lorem ipsum dolor sit amet.
   </p>
+
+  <button class="btn" (click)="isVisible = !isVisible">Toggle visible</button>
+
+<!--  <div *ngIf="isVisible" class="wrap">-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda impedit iste necessitatibus nesciunt nihil non nostrum quod temporibus vel.</p>-->
+<!--  </div>-->
+
+<!--  <div *appIfnot="!isVisible" class="wrap">-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut laboriosam odio perspiciatis quaerat quos repudiandae rerum sed? Atque, libero.</p>-->
+<!--  </div>-->
+
+  <ng-template [appIfnot]="!isVisible">
+      <div class="wrap">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut laboriosam odio perspiciatis quaerat quos repudiandae rerum sed? Atque, libero.</p>
+  </div>
+  </ng-template>
+
 </div>
