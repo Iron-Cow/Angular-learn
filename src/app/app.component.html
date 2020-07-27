@@ -1,76 +1,15 @@
 <div class="container">
   <h1>Angular Pipes</h1>
 
+  <p>
+    {{ 10 | mult }}
+    {{ 10 | mult:10 }}
+    {{ 10 | mult: 2}}
+    {{ 10 | mult: 3}}
+    {{ 10 | mult: 4}}
+  </p>
 
-  <p>{{ e }}</p>
-  <!--    2.718281828459045-->
-
-  <!--   1 dig before . and 1 to 5 after-->
-  <p>{{ e | number: '1.1-5' }}</p>
-  <!--    2.71828-->
-
-  <p>{{ e | number: '3.1-5' }}</p>
-  <!--  002.71828-->
-
-  <p>{{ e | number: '1.0-0' }}</p>
-  <!--3-->
-
-
-  <p>{{ str }}</p>
-  <!--  hello world-->
-
-  <p>{{ str | uppercase | lowercase }}</p>
-  <!--  hello world-->
-  <p>{{ str | titlecase }}</p>
-  <!--  Hello World-->
-
-  <p>{{ str | slice: 1:-2 }}</p>
-  <!--  ello wor-->
-
-
-  <p>{{ date }}</p>
-  <!--  Mon Jul 27 2020 17:08:35 GMT+0300 (Восточная Европа, летнее время)-->
-
-  <p>{{ date | date }}</p>
-  <!--  Jul 27, 2020-->
-
-  <p>{{ date | date:'fullDate' }}</p>
-  <!--  Monday, July 27, 2020-->
-
-  <p>{{ date | date:'yyyy' }}</p>
-  <!--  2020-->
-
-  <p>{{ date | date:'MMMM y' }}</p>
-  <!--  July 2020-->
-
-  <p>{{ date | date:'yyyy.mm.dd' }}</p>
-  <!--  2020.13.27-->
-
-
-  <p>{{ fl }}</p>
-  <!--  0.42-->
-
-  <p>{{ fl | currency }}</p>v
-  <!--  $0.42-->
-
-  <p>{{ fl | percent }}</p>
-  <!--  42%-->
-  <p>{{ fl | percent:'3.1-2' }}</p>
-  <!--  042.0%-->
-  <p>{{ fl | percent }}</p>
-  <p>{{ fl | percent }}</p>
-
-  <p>{{obj}}</p>
-  <!--  [object Object]-->
-
-  <pre>{{obj | json}}</pre>
-
-  <!--{-->
-  <!--  "a": 1,-->
-  <!--  "b": {-->
-  <!--    "c": 4,-->
-  <!--    "d": "A"-->
-  <!--  }-->
-  <!--}-->
+<p >{{ ' Hello World        '}}</p>
+<p>{{ ' Hello World        ' | exMarks}}</p>
 
 </div>
