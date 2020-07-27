@@ -1,31 +1,76 @@
 <div class="container">
-  <h1>Angular Directives</h1>
-<!--  if string - binding not required-->
+  <h1>Angular Pipes</h1>
 
-  <p [appStyle]="'red'"
-     [dStyles]="{border: '1px solid blue', borderRadius: '5px'}"
-  >Lorem ipsum dolor sit amet.
-  </p>
 
-  <p [appStyle]="'blue'"
-     [dStyles]="{border: '1px solid red', borderRadius: '15px'}"
-  >Lorem ipsum dolor sit amet.
-  </p>
+  <p>{{ e }}</p>
+  <!--    2.718281828459045-->
 
-  <button class="btn" (click)="isVisible = !isVisible">Toggle visible</button>
+  <!--   1 dig before . and 1 to 5 after-->
+  <p>{{ e | number: '1.1-5' }}</p>
+  <!--    2.71828-->
 
-<!--  <div *ngIf="isVisible" class="wrap">-->
-<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda impedit iste necessitatibus nesciunt nihil non nostrum quod temporibus vel.</p>-->
-<!--  </div>-->
+  <p>{{ e | number: '3.1-5' }}</p>
+  <!--  002.71828-->
 
-<!--  <div *appIfnot="!isVisible" class="wrap">-->
-<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut laboriosam odio perspiciatis quaerat quos repudiandae rerum sed? Atque, libero.</p>-->
-<!--  </div>-->
+  <p>{{ e | number: '1.0-0' }}</p>
+  <!--3-->
 
-  <ng-template [appIfnot]="!isVisible">
-      <div class="wrap">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut laboriosam odio perspiciatis quaerat quos repudiandae rerum sed? Atque, libero.</p>
-  </div>
-  </ng-template>
+
+  <p>{{ str }}</p>
+  <!--  hello world-->
+
+  <p>{{ str | uppercase | lowercase }}</p>
+  <!--  hello world-->
+  <p>{{ str | titlecase }}</p>
+  <!--  Hello World-->
+
+  <p>{{ str | slice: 1:-2 }}</p>
+  <!--  ello wor-->
+
+
+  <p>{{ date }}</p>
+  <!--  Mon Jul 27 2020 17:08:35 GMT+0300 (Восточная Европа, летнее время)-->
+
+  <p>{{ date | date }}</p>
+  <!--  Jul 27, 2020-->
+
+  <p>{{ date | date:'fullDate' }}</p>
+  <!--  Monday, July 27, 2020-->
+
+  <p>{{ date | date:'yyyy' }}</p>
+  <!--  2020-->
+
+  <p>{{ date | date:'MMMM y' }}</p>
+  <!--  July 2020-->
+
+  <p>{{ date | date:'yyyy.mm.dd' }}</p>
+  <!--  2020.13.27-->
+
+
+  <p>{{ fl }}</p>
+  <!--  0.42-->
+
+  <p>{{ fl | currency }}</p>v
+  <!--  $0.42-->
+
+  <p>{{ fl | percent }}</p>
+  <!--  42%-->
+  <p>{{ fl | percent:'3.1-2' }}</p>
+  <!--  042.0%-->
+  <p>{{ fl | percent }}</p>
+  <p>{{ fl | percent }}</p>
+
+  <p>{{obj}}</p>
+  <!--  [object Object]-->
+
+  <pre>{{obj | json}}</pre>
+
+  <!--{-->
+  <!--  "a": 1,-->
+  <!--  "b": {-->
+  <!--    "c": 4,-->
+  <!--    "d": "A"-->
+  <!--  }-->
+  <!--}-->
 
 </div>

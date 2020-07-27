@@ -1,10 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 
-export interface Post {
-  title: string;
-  text: string;
-  id?: number;
-}
 
 
 @Component({
@@ -13,5 +8,16 @@ export interface Post {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  isVisible = true;
+  e: number = Math.E;
+  str = 'hello world';
+  date: Date = new Date();
+
+  fl = 0.42;
+  obj: any = {
+    a: 1,
+    b: {
+      c: 4,
+      d: 'A'
+    }
+  };
 }
