@@ -54,7 +54,7 @@
         <input type="text" formControlName="city" placeholder="City">
       </div>
 
-      <button class="btn" type="button">Выбрать столицу</button>
+      <button class="btn" type="button" (click)="setCapital()">Показать столицу</button>
     </div>
 
     <div class="card">
@@ -67,9 +67,7 @@
     </div>
 
     <button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
-<!--    <pre>{{form.get('address').errors | json}}</pre>-->
-    <pre>{{form.get('address').value | json}}</pre>
-<!--    <pre>{{form.get('country').errors | json}}</pre>-->
+
 
   </form>
 </div>
