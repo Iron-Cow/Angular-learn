@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
 
 export interface Post {
   title: string;
@@ -10,20 +11,23 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  // @Input()
-  search = '';
-  searchField = '';
-  posts = [
-    {title: "Beer", text: "The best Beer in the world"},
-    {title: "Bread", text: "The best Bread in the world"},
-    {title: 'JavaScript', text: 'The Best Language in the world'}
-  ];
+export class AppComponent implements OnInit{
+  promise: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(() =>{
+      resolve('Promise Resolved');
+    }, 4000);
+  });
 
-  addPost(): void{
-    this.posts.unshift({
-      title: "Angular8",
-      text: 'Iurii Angular 8 course'
+  date$: Observable<Date> = new Observable(obs => {
+    setInterval(() => {
+      obs.next(new Date());
+    }, 1000);
+  });
+  date: Date;
+
+  ngOnInit(): void {
+    this.date$.subscribe(date => {
+      this.date = date;
     });
   }
 }
