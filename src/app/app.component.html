@@ -37,21 +37,21 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" formGroupName="address">
       <h2>Адрес</h2>
 
       <div class="form-control">
         <label>Страна</label>
 
-        <select>
+        <select formControlName="country">
           <option value="ua">Украина</option>
-          <option value="ru">Россия</option>
           <option value="by">Беларусь</option>
+          <option value="ru">Россия</option>
         </select>
       </div>
 
-      <div class="form-control">
-        <input type="text">
+      <div class="form-control" >
+        <input type="text" formControlName="city" placeholder="City">
       </div>
 
       <button class="btn" type="button">Выбрать столицу</button>
@@ -67,6 +67,9 @@
     </div>
 
     <button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
+<!--    <pre>{{form.get('address').errors | json}}</pre>-->
+    <pre>{{form.get('address').value | json}}</pre>
+<!--    <pre>{{form.get('country').errors | json}}</pre>-->
 
   </form>
 </div>
