@@ -1,38 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-body{
-  font-family:  "Roboto", sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
 }
 
-.container{
+.container {
   max-width: 1000px;
   margin: 0 auto;
-  padding-top: 1rem;
+  padding: 1rem;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-a:hover{
+a:hover {
   color: #666;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-img{
+img {
   width: 100%;
 }
 
-.btn{
+.btn {
   display: inline-block;
-  background-color: #333;
+  background: #333333;
   color: #fff;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
@@ -41,40 +47,56 @@ img{
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+
+  &:disabled {
+    background: #ccc;
+    color: #000;
+    cursor: not-allowed;
+  }
 }
 
-hr{
-  margin: .5rem 0;
+.btn:hover {
+  opacity: 0.8;
 }
 
-.btn:hover{
-  opacity: .8;
-}
-
-.form-control{
+.form-control {
   display: block;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
+  margin-bottom: .5rem;
+
+  label {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+  }
+
+  input {
+    margin-bottom: 0;
+  }
+
+  .validation {
+    color: red;
+  }
 }
 
-.card{
+.card {
   padding: 1rem;
   border: #ccc 1px dotted;
+  margin: 0.7rem 0;
 }
 
 input,
 select,
-textarea{
+textarea {
   display: block;
   width: 100%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
-  margin: 1.2rem 0;
+  margin-bottom: 1rem;
 }
 
-
-
-h1{
-  color: red;
+hr {
+  margin: .5rem 0;
 }
-
