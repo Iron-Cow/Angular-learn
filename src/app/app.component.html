@@ -13,6 +13,9 @@
           *ngIf="form.get('email').errors.required"
         >Email field can not be empty</small>
         <small
+          *ngIf="form.get('email').errors.restrictedEmail"
+        >Email {{ form.get('email').value }} forbidden</small>
+        <small
           *ngIf="form.get('email').errors.email"
         >Email is not correct</small>
       </div>
@@ -57,12 +60,12 @@
       <button class="btn" type="button" (click)="setCapital()">Показать столицу</button>
     </div>
 
-    <div class="card">
+    <div class="card" formGroupName="skills">
       <h2>Ваши навыки</h2>
-      <button class="btn" type="button">Добавить умение</button>
-      <div class="form-control">
-        <label></label>
-        <input type="text">
+      <button class="btn" type="button" (click)="addSkill()">Добавить умение</button>
+      <div class="form-control" *ngFor="let contol of form.get('skills')['controls']; let idx = index">
+        <label>Skill #{{idx + 1}}</label>
+        <input type="text" [formControlName]="idx">
       </div>
     </div>
 
