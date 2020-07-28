@@ -1,12 +1,10 @@
 <div class="container">
-  <h1>Angular Pipes</h1>
+  <h1>Angular Services</h1>
 
-  <p>Wait for it ... {{ promise | async }}</p>
+  <div class="card">
+    <h2>AppCounter: {{ appCounterService.counter }}</h2>
 
-<!--  async pipe-->
-  <p>{{ date$ | async | date: 'HH-mm:ss'}}</p>
-
-<!--  classic stream handling (additional subscribe)-->
-  <p>{{ date | date: 'HH-mm:ss' }}</p>
-
+    <button class="btn" (click)="appCounterService.increase()">+</button>
+    <button class="btn" (click)="appCounterService.decrease()">-</button>
+  </div>
 </div>
