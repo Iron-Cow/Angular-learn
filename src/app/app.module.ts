@@ -15,7 +15,7 @@ import {AppCounterService} from "./service/app-counter.service";
     FormsModule
   ],
   providers: [
-    AppCounterService
+    // AppCounterService
   ],
   bootstrap: [AppComponent]
 })
