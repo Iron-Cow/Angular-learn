@@ -3,19 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { SswitchComponent } from './sswitch/sswitch.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SswitchComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule
   ],
   providers: [
 
