@@ -18,6 +18,8 @@ export class AppComponent implements OnInit{
 
   loading = false;
 
+  error = '';
+
   constructor(
     private todosService: TodosService
   ){}
@@ -35,11 +37,17 @@ export class AppComponent implements OnInit{
     this.todosService.addTodo({
       title: this.todoTitle,
       completed: false
-    }).subscribe(todo => {
+    }).subscribe(
+      todo => {
       // console.log('todo', todo);
       this.todos.push(todo);
       this.todoTitle = '';
-    });
+    },
+      error => {
+        console.log('error', error);
+      },
+      () => {}
+      );
   }
 
   fetchTodos(): void {
@@ -50,7 +58,12 @@ export class AppComponent implements OnInit{
           // console.log('Response:', todos);
           this.todos = todos;
           this.loading = false;
-        }
+        },
+      error => {
+        console.log('error', error);
+        this.error = error.message;
+      },
+      () => {}
       );
   }
 
