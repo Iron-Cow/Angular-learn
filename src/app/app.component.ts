@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.fetchTotos();
+    this.fetchTodos();
   }
 
 
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit{
       });
   }
 
-  fetchTotos(): void {
+  fetchTodos(): void {
     // RxJS
     this.loading = true;
     this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
@@ -59,5 +59,13 @@ export class AppComponent implements OnInit{
           this.loading = false;
         }
       );
+  }
+
+  deleteTodo(id: number): void {
+    this.http.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .subscribe(resp => {
+        // console.log(resp);
+        this.todos = this.todos.filter(todo => todo.id !== id);
+      });
   }
 }
