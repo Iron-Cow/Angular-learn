@@ -77,6 +77,8 @@ export class AppComponent implements OnInit{
 
   completeTodo(id: any): void {
     this.todosService.completeTodo(id).subscribe(resp => {
+      // // @ts-ignore
+      // resp = JSON.parse(resp);
       console.log(resp);
       this.todos.find(t => t.id === resp.id).completed = true;
     });
