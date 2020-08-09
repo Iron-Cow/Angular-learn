@@ -6,7 +6,8 @@ import {AboutExtraPageComponent} from './about-page/about-extra-page/about-extra
 
 @NgModule({
   imports: [RouterModule.forRoot([
-    {path: '', component: HomePageComponent, pathMatch: 'full'}
+    {path: '', component: HomePageComponent, pathMatch: 'full'},
+    {path: 'about', loadChildren: './about-page/about-page.module#AboutPageModule'}
   ])],
   exports: [RouterModule]
 })
