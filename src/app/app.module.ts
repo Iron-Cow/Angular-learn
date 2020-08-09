@@ -3,14 +3,10 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
-import { ModalComponent } from './modal/modal.component';
-import {RefDirective} from "./modal/ref.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalComponent,
-    RefDirective
 
   ],
   imports: [
@@ -18,7 +14,7 @@ import {RefDirective} from "./modal/ref.directive";
     FormsModule,
   ],
   providers: [],
-  entryComponents: [ModalComponent],
+  entryComponents: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
