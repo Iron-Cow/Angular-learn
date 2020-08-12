@@ -82,7 +82,8 @@
     ],
     "semicolon": {
       "options": [
-        "always"
+        "never",
+        "ignore-bound-class-methods"
       ]
     },
     "space-before-function-paren": {
@@ -95,7 +96,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
