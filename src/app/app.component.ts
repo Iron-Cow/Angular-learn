@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {trigger, state, style, transition, animate, group, sequence} from "@angular/animations";
+import {trigger, state, style, transition, animate, group, sequence, query} from "@angular/animations";
 
 @Component({
   selector: 'app-root',
@@ -28,12 +28,18 @@ import {trigger, state, style, transition, animate, group, sequence} from "@angu
       })),
       transition('start => end', animate(450)),
       transition('end => start', animate('800ms ease-in-out')),
-      transition('* <=> special', [
+      transition('special <=> *', [
+        group([
+          query('h4', animate(1500, style({
+          fontSize: '0.5rem',
+          color: 'purple'
+        }))),
         style({background: 'green'}),
         animate('1s', style({
           background: 'pink'
         })),
         animate(750),
+        ])
       ]),
       // void => *
       transition(':enter', [
