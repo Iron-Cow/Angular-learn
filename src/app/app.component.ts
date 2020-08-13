@@ -9,18 +9,22 @@ import {trigger, state, style, transition, animate} from "@angular/animations";
     trigger('box', [
       state('start', style({
         background: 'blue',
-        borderRadius: '50%'
+        // borderRadius: '50%',
+        // opacity: 1,
+        transform: 'scale(1)'
 
       })),
       state('end', style({
         background: 'red',
         transform: 'scale(1.2)',
-        borderRadius: '0'
+        borderRadius: '0',
+        opacity: 1
       })),
       state('special', style({
         background: 'orange',
         transform: 'scale(0.5)',
-        borderRadius: '50%'
+        borderRadius: '50%',
+        opacity: 1
       })),
       transition('start => end', animate(450)),
       transition('end => start', animate('800ms ease-in-out')),
@@ -31,11 +35,25 @@ import {trigger, state, style, transition, animate} from "@angular/animations";
         })),
         animate(750),
       ]),
+      // void => *
+      transition(':enter', [
+        style({opacity: 0, transform: 'scale(1.2)'}),
+        animate(750)
+      ]),
+      // * => void
+      transition(':leave', [
+        style({opacity: 1}),
+        animate(750, style({
+          opacity: 0,
+          transform: 'scale(1.2)'
+        })),
+      ]),
     ])
   ]
 })
 export class AppComponent {
   boxState = 'start';
+  visible = true;
 
   animate() {
     this.boxState = this.boxState === 'end' ? 'start' : 'end';
