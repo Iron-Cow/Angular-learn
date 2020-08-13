@@ -6,7 +6,12 @@
   <div class="box"
      *ngIf="visible"
      [@box]="boxState"
+     (@box.start)="animationStarted($event)"
+     (@box.done)="animationDone($event)"
+
   >
     <h4>{{ boxState | uppercase}}</h4>
   </div>
 </div>
+<!--   [@box]="boxState"  ----    animation-->
+<!--   (@box.start)="animationStarted($event)"  ----  animation event -->
