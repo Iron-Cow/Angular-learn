@@ -7,11 +7,15 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   create(post): Observable<any> {
-    return this.http.post(``, post);
+    return this.http.post(``, post)
   }
 
   fetch(): Observable<any[]> {
     return this.http.get<any[]>(``)
+  }
+
+  fetchPromise(): Promise<any[]> {
+    return this.http.get<any[]>(``).toPromise()
   }
 
   remove(id: number): Observable<any> {
